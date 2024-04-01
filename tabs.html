@@ -1,139 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabbladen met HTML only</title>
-  <style>
-    .tabbladen {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 50px;
-    }
-    .tabbladen summary {
-        list-style-type: none;
-        font-weight: bold;
-        cursor: pointer;
-    }
+<!doctype html>
+<html lang="nl">
+	<head>
+		<meta charset="utf-8">
+		<title>Tabs / Progressive Enhancement / FDND</title>
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+		<link href="assets/styles.css" rel="stylesheet">
 
-    .tab-content {
-        display: none;
-    }
+<style>
+	.tab {
+  overflow: hidden;
+}
 
-    .tab-content.active {
-        display: block;
-    }
-  </style>
-</head>
-<body>
-<h1>Tabbladen</h1>
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
 
-<!-- Tabbladkoppen -->
-<div class="tabbladen">
-    <details>
-        <summary>Docenten</summary>
-        <div id="docenten" class="tab-content active">
-			<p>Berat Zekaj</p>
-			<p>Charley Muhren</p>
-			<p>Cyd Stumpel</p>
-			<p>Dorien Drees</p>
-			<p>Joost Faber</p>
-			<p>Justus Sturkenboom</p>
-			<p>Koop Reijnders</p>
-			<p>Krijn Hoetmer</p>
-			<p>Sanne 't Hooft</p>
-			<p>Suus ten Voorde</p>
-        </div>
-    </details>
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
 
-    <details>
-        <summary>Sprints</summary>
-        <div id="sprints" class="tab-content">
-			<p>Your Tribe</p>
-			<p>The Client</p>
-			<p>All Human</p>
-			<p>Look and Feel</p>
-			<p>Fix the Flow</p>
-			<p>The Startup</p>
-			<p>Connect Your Tribe</p>
-			<p>Server-Side Rendering</p>
-			<p>The Web is for Everyone</p>
-			<p>Performance Matters</p>
-			<p>Connecting People</p>
-			<p>Proof of Concept</p>
-			<p>Your Tribe for Life</p>
-			<p>Lose Your Head</p>
-			<p>Choices, Choices</p>
-			<p>Don't Repeat Yourself</p>
-			<p>Back to Static</p>
-			<p>Let's JAM</p>
-			<p>Free Space</p>
-			<p>Final Sprint</p>
-        </div>
-    </details>
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
 
-    <details>
-        <summary>Gedragscriteria</summary>
-        <div id="gedragscriteria" class="tab-content">
-			<p>Methodisch handelen</p>
-			<ul>
-			  <li>Kiest binnen projecten passende fases van de development-lifecycle.</li>
-			  <li>Combineert aangeboden principes en conventies op het gebied van frontend design en development.</li>
-			  <li>Houdt in beginnende mate rekening met de belangen van de eindgebruiker bij het realiseren van een oplossing voor een opdrachtgever.</li>
-			</ul>
-			<p>Samenwerken</p>
-			<ul>
-			  <li>Werkt in teams, vraagt begeleiding waar nodig en geeft feedback aan teamleden.</li>
-			  <li>Draagt verantwoording voor eigen resultaten, verwerkt ontvangen feedback en wijst teamleden op hun verantwoording.</li>
-			  <li>Identificeert diversiteit binnen teams en handelt respectvol naar anderen.</li>
-			</ul>
-			<p>Communiceren</p>
-			<ul>
-			  <li>Luistert en vraagt door, neemt wat een ander zegt serieus.</li>
-			  <li>Kan ontwerpkeuzes, eigen ideeën en producten begrijpelijk overbrengen aan belanghebbenden.</li>
-			  <li>Documenteert op professionele wijze en houdt voortgang bij.</li>
-			</ul>
-			<p>Probleemoplossend vermogen</p>
-			<ul>
-			  <li>Analyseert een vraag, signaleert knelpunten en volgt de aangeboden oplossingsrichting.</li>
-			  <li>Schetst om gedachten en processen te verkennen en abstracte begrippen over te brengen.</li>
-			  <li>Bedenkt en implementeert complexere frontend code en gebruikt daarbij API's en databases.</li>
-			</ul>
-			<p>Lerend vermogen</p>
-			<ul>
-			  <li>Volgt aangeboden internationale ontwikkelingen in het vakgebied.</li>
-			  <li>Maakt aangeboden en zelf gevonden materie eigen en gebruikt dit bij leertaken, deelt ervaring binnen de squad.</li>
-			  <li>Kent eigen capaciteiten en beperkingen, vergelijkt dit met het vermogen van anderen en maakt dit bespreekbaar.</li>
-			</ul>
-    </details>
-
-    <details>
-        <summary>Open avond</summary>
-        <div id="openavond" class="tab-content">
-			<p>Open avond 16 april</p>
-			<p>Op de open dag proef je de sfeer en ontdek je hoe het is om aan de HvA te studeren. Je maakt kennis met studenten en docenten van de opleiding.</p>
-			<p>Stel je vragen over studiekeuze, studeren met een functiebeperking en toelating op het studiekeuzeplein. Heb je nog vragen over de opleiding? We staan tijdens de open dag/avond klaar om al jouw vragen te beantwoorden.</p>
-        </div>
-    </details>
-</div>
-
-<script>
-	document.addEventListener("DOMContentLoaded", function() {
-		const summaries = document.querySelectorAll('.tabbladen summary');
-		summaries.forEach(summary => {
-			summary.addEventListener('click', function() {
-				const tabName = this.parentElement.querySelector('.tab-content').id;
-				const tabs = document.querySelectorAll('.tab-content');
-				tabs.forEach(tab => {
-					tab.classList.remove('active');
-				});
-				const tabToShow = document.getElementById(tabName);
-				tabToShow.classList.add('active');
-			});
-		});
-	});
-	</script>
-	
-
-</body>
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</style>
+<div class="tab">
+	<button class="tablinks" onclick="openTab(event, 'docenten')">Docenten</button>
+	<button class="tablinks" onclick="openTab(event, 'sprints')">Sprints</button>
+	<button class="tablinks" onclick="openTab(event, 'gedragscriteria')">Gedragscriteria</button>
+	<button class="tablinks" onclick="openTab(event, 'openavond')">Open avond</button>
+  </div>
+  
+  <div id="docenten" class="tabcontent active">
+	  <p>Berat Zekaj</p>
+	  <p>Charley Muhren</p>
+	  <p>Cyd Stumpel</p>
+	  <p>Dorien Drees</p>
+	  <p>Joost Faber</p>
+	  <p>Justus Sturkenboom</p>
+	  <p>Koop Reijnders</p>
+	  <p>Krijn Hoetmer</p>
+	  <p>Sanne 't Hooft</p>
+	  <p>Suus ten Voorde</p>
+  </div>
+  
+  <div id="sprints" class="tabcontent">
+	  <p>Your Tribe</p>
+	  <p>The Client</p>
+	  <p>All Human</p>
+	  <p>Look and Feel</p>
+	  <p>Fix the Flow</p>
+	  <p>The Startup</p>
+	  <p>Connect Your Tribe</p>
+	  <p>Server-Side Rendering</p>
+	  <p>The Web is for Everyone</p>
+	  <p>Performance Matters</p>
+	  <p>Connecting People</p>
+	  <p>Proof of Concept</p>
+	  <p>Your Tribe for Life</p>
+	  <p>Lose Your Head</p>
+	  <p>Choices, Choices</p>
+	  <p>Don't Repeat Yourself</p>
+	  <p>Back to Static</p>
+	  <p>Let's JAM</p>
+	  <p>Free Space</p>
+	  <p>Final Sprint</p>
+  </div>
+  
+  <div id="gedragscriteria" class="tabcontent">
+	  <p>Methodisch handelen</p>
+	  <ul>
+		  <li>Kiest binnen projecten passende fases van de development-lifecycle.</li>
+		  <li>Combineert aangeboden principes en conventies op het gebied van frontend design en development.</li>
+		  <li>Houdt in beginnende mate rekening met de belangen van de eindgebruiker bij het realiseren van een oplossing voor een opdrachtgever.</li>
+	  </ul>
+	  <p>Samenwerken</p>
+	  <ul>
+		  <li>Werkt in teams, vraagt begeleiding waar nodig en geeft feedback aan teamleden.</li>
+		  <li>Draagt verantwoording voor eigen resultaten, verwerkt ontvangen feedback en wijst teamleden op hun verantwoording.</li>
+		  <li>Identificeert diversiteit binnen teams en handelt respectvol naar anderen.</li>
+	  </ul>
+	  <p>Communiceren</p>
+	  <ul>
+		  <li>Luistert en vraagt door, neemt wat een ander zegt serieus.</li>
+		  <li>Kan ontwerpkeuzes, eigen ideeën en producten begrijpelijk overbrengen aan belanghebbenden.</li>
+		  <li>Documenteert op professionele wijze en houdt voortgang bij.</li>
+	  </ul>
+	  <p>Probleemoplossend vermogen</p>
+	  <ul>
+		  <li>Analyseert een vraag, signaleert knelpunten en volgt de aangeboden oplossingsrichting.</li>
+		  <li>Schetst om gedachten en processen te verkennen en abstracte begrippen over te brengen.</li>
+		  <li>Bedenkt en implementeert complexere frontend code en gebruikt daarbij API's en databases.</li>
+	  </ul>
+	  <p>Lerend vermogen</p>
+	  <ul>
+		  <li>Volgt aangeboden internationale ontwikkelingen in het vakgebied.</li>
+		  <li>Maakt aangeboden en zelf gevonden materie eigen en gebruikt dit bij leertaken, deelt ervaring binnen de squad.</li>
+		  <li>Kent eigen capaciteiten en beperkingen, vergelijkt dit met het vermogen van anderen en maakt dit bespreekbaar.</li>
+	  </ul>
+  </div>
+  
+  <div id="openavond" class="tabcontent">
+	  <p>Open avond 16 april</p>
+	  <p>Op de open dag proef je de sfeer en ontdek je hoe het is om aan de HvA te studeren. Je maakt kennis met studenten en docenten van de opleiding.</p>
+	  <p>Stel je vragen over studiekeuze, studeren met een functiebeperking en toelating op het studiekeuzeplein. Heb je nog vragen over de opleiding? We staan tijdens de open dag/avond klaar om al jouw vragen te beantwoorden.</p>
+  </div>
+  
+  <script>
+  function openTab(evt, tabName) {
+	  var i, tabcontent, tablinks;
+	  tabcontent = document.getElementsByClassName("tabcontent");
+	  for (i = 0; i < tabcontent.length; i++) {
+		  tabcontent[i].style.display = "none";
+	  }
+	  tablinks = document.getElementsByClassName("tablinks");
+	  for (i = 0; i < tablinks.length; i++) {
+		  tablinks[i].className = tablinks[i].className.replace(" active", "");
+	  }
+	  document.getElementById(tabName).style.display = "block";
+	  evt.currentTarget.className += " active";
+  }
+  </script>
+	</head>
 </html>
