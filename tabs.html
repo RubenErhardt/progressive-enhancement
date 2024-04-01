@@ -1,116 +1,139 @@
-<!doctype html>
-<html lang="nl">
-	<head>
-		<meta charset="utf-8">
-		<title>Tabbladen / Progressive Enhancement / FDND</title>
-		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-		<link href="assets/styles.css" rel="stylesheet">
-		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabbladen met HTML only</title>
+  <style>
+    .tabbladen {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+    }
+    .tabbladen summary {
+        list-style-type: none;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-			/* Hint: kijk eens naar de :target selector */
-		</style>
-		<script type="module">
-			/* Schrijf hier eventueel je client-side JavaScript */
-		</script>
-	</head>
-	<body>
-		<h1>Tabbladen</h1>
+    .tab-content {
+        display: none;
+    }
 
-		<!-- Hint: vraag je af wat tabbladen eigenlijk zijn -->
+    .tab-content.active {
+        display: block;
+    }
+  </style>
+</head>
+<body>
+<h1>Tabbladen</h1>
 
-		<!-- Content
+<!-- Tabbladkoppen -->
+<div class="tabbladen">
+    <details>
+        <summary>Docenten</summary>
+        <div id="docenten" class="tab-content active">
+			<p>Berat Zekaj</p>
+			<p>Charley Muhren</p>
+			<p>Cyd Stumpel</p>
+			<p>Dorien Drees</p>
+			<p>Joost Faber</p>
+			<p>Justus Sturkenboom</p>
+			<p>Koop Reijnders</p>
+			<p>Krijn Hoetmer</p>
+			<p>Sanne 't Hooft</p>
+			<p>Suus ten Voorde</p>
+        </div>
+    </details>
 
-		Docenten
-		Sprints
-		Gedragscriteria
-		Open avond
+    <details>
+        <summary>Sprints</summary>
+        <div id="sprints" class="tab-content">
+			<p>Your Tribe</p>
+			<p>The Client</p>
+			<p>All Human</p>
+			<p>Look and Feel</p>
+			<p>Fix the Flow</p>
+			<p>The Startup</p>
+			<p>Connect Your Tribe</p>
+			<p>Server-Side Rendering</p>
+			<p>The Web is for Everyone</p>
+			<p>Performance Matters</p>
+			<p>Connecting People</p>
+			<p>Proof of Concept</p>
+			<p>Your Tribe for Life</p>
+			<p>Lose Your Head</p>
+			<p>Choices, Choices</p>
+			<p>Don't Repeat Yourself</p>
+			<p>Back to Static</p>
+			<p>Let's JAM</p>
+			<p>Free Space</p>
+			<p>Final Sprint</p>
+        </div>
+    </details>
 
-		<ol>
-			<li>Berat Zekaj</li>
-			<li>Charley Muhren</li>
-			<li>Cyd Stumpel</li>
-			<li>Dorien Drees</li>
-			<li>Joost Faber</li>
-			<li>Justus Sturkenboom</li>
-			<li>Koop Reijnders</li>
-			<li>Krijn Hoetmer</li>
-			<li>Sanne 't Hooft</li>
-			<li>Suus ten Voorde</li>
-		</ol>
+    <details>
+        <summary>Gedragscriteria</summary>
+        <div id="gedragscriteria" class="tab-content">
+			<p>Methodisch handelen</p>
+			<ul>
+			  <li>Kiest binnen projecten passende fases van de development-lifecycle.</li>
+			  <li>Combineert aangeboden principes en conventies op het gebied van frontend design en development.</li>
+			  <li>Houdt in beginnende mate rekening met de belangen van de eindgebruiker bij het realiseren van een oplossing voor een opdrachtgever.</li>
+			</ul>
+			<p>Samenwerken</p>
+			<ul>
+			  <li>Werkt in teams, vraagt begeleiding waar nodig en geeft feedback aan teamleden.</li>
+			  <li>Draagt verantwoording voor eigen resultaten, verwerkt ontvangen feedback en wijst teamleden op hun verantwoording.</li>
+			  <li>Identificeert diversiteit binnen teams en handelt respectvol naar anderen.</li>
+			</ul>
+			<p>Communiceren</p>
+			<ul>
+			  <li>Luistert en vraagt door, neemt wat een ander zegt serieus.</li>
+			  <li>Kan ontwerpkeuzes, eigen ideeën en producten begrijpelijk overbrengen aan belanghebbenden.</li>
+			  <li>Documenteert op professionele wijze en houdt voortgang bij.</li>
+			</ul>
+			<p>Probleemoplossend vermogen</p>
+			<ul>
+			  <li>Analyseert een vraag, signaleert knelpunten en volgt de aangeboden oplossingsrichting.</li>
+			  <li>Schetst om gedachten en processen te verkennen en abstracte begrippen over te brengen.</li>
+			  <li>Bedenkt en implementeert complexere frontend code en gebruikt daarbij API's en databases.</li>
+			</ul>
+			<p>Lerend vermogen</p>
+			<ul>
+			  <li>Volgt aangeboden internationale ontwikkelingen in het vakgebied.</li>
+			  <li>Maakt aangeboden en zelf gevonden materie eigen en gebruikt dit bij leertaken, deelt ervaring binnen de squad.</li>
+			  <li>Kent eigen capaciteiten en beperkingen, vergelijkt dit met het vermogen van anderen en maakt dit bespreekbaar.</li>
+			</ul>
+    </details>
 
-		<ol>
-			<li>Your Tribe</li>
-			<li>The Client</li>
-			<li>All Human</li>
-			<li>Look and Feel</li>
-			<li>Fix the Flow</li>
-			<li>The Startup</li>
-			<li>Connect Your Tribe</li>
-			<li>Server-Side Rendering</li>
-			<li>The Web is for Everyone</li>
-			<li>Performance Matters</li>
-			<li>Connecting People</li>
-			<li>Proof of Concept</li>
-			<li>Your Tribe for Life</li>
-			<li>Lose Your Head</li>
-			<li>Choices, Choices</li>
-			<li>Don't Repeat Yourself</li>
-			<li>Back to Static</li>
-			<li>Let's JAM</li>
-			<li>Free Space</li>
-			<li>Final Sprint</li>
-		</ol>
+    <details>
+        <summary>Open avond</summary>
+        <div id="openavond" class="tab-content">
+			<p>Open avond 16 april</p>
+			<p>Op de open dag proef je de sfeer en ontdek je hoe het is om aan de HvA te studeren. Je maakt kennis met studenten en docenten van de opleiding.</p>
+			<p>Stel je vragen over studiekeuze, studeren met een functiebeperking en toelating op het studiekeuzeplein. Heb je nog vragen over de opleiding? We staan tijdens de open dag/avond klaar om al jouw vragen te beantwoorden.</p>
+        </div>
+    </details>
+</div>
 
-		<ol>
-			<li>Methodisch handelen
-				<ol>
-					<li>Kiest binnen projecten passende fases van de development-lifecycle.</li>
-					<li>Combineert aangeboden principes en conventies op het gebied van frontend design en development.</li>
-					<li>Houdt in beginnende mate rekening met de belangen van de eindgebruiker bij het realiseren van een oplossing voor een opdrachtgever.</li>
-				</ol>
-			</li>
-			<li>Samenwerken
-				<ol>
-					<li>Werkt in teams, vraagt begeleiding waar nodig en geeft feedback aan teamleden.</li>
-					<li>Draagt verantwoording voor eigen resultaten, verwerkt ontvangen feedback en wijst teamleden op hun verantwoording.</li>
-					<li>Identificeert diversiteit binnen teams en handelt respectvol naar anderen.</li>
-				</ol>
-			</li>
-			<li>Communiceren
-				<ol>
-					<li>Luistert en vraagt door, neemt wat een ander zegt serieus.</li>
-					<li>Kan ontwerpkeuzes, eigen ideeën en producten begrijpelijk overbrengen aan belanghebbenden.</li>
-					<li>Documenteert op professionele wijze en houdt voortgang bij.</li>
-				</ol>
-			</li>
-			<li>Probleemoplossend vermogen
-				<ol>
-					<li>Analyseert een vraag, signaleert knelpunten en volgt de aangeboden oplossingsrichting.</li>
-					<li>Schetst om gedachten en processen te verkennen en abstracte begrippen over te brengen.</li>
-					<li>Bedenkt en implementeert complexere frontend code en gebruikt daarbij API's en databases.</li>
-				</ol>
-			</li>
-			<li>Lerend vermogen
-				<ol>
-					<li>Volgt aangeboden internationale ontwikkelingen in het vakgebied.</li>
-					<li>Maakt aangeboden en zelf gevonden materie eigen en gebruikt dit bij leertaken, deelt ervaring binnen de squad.</li>
-					<li>Kent eigen capaciteiten en beperkingen, vergelijkt dit met het vermogen van anderen en maakt dit bespreekbaar.</li>
-				</ol>
-			</li>
-		</ol>
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		const summaries = document.querySelectorAll('.tabbladen summary');
+		summaries.forEach(summary => {
+			summary.addEventListener('click', function() {
+				const tabName = this.parentElement.querySelector('.tab-content').id;
+				const tabs = document.querySelectorAll('.tab-content');
+				tabs.forEach(tab => {
+					tab.classList.remove('active');
+				});
+				const tabToShow = document.getElementById(tabName);
+				tabToShow.classList.add('active');
+			});
+		});
+	});
+	</script>
+	
 
-		<p>Open avond 16 april</p>
-		<p>Op de open dag proef je de sfeer en ontdek je hoe het is om aan de HvA te studeren. Je maakt kennis met studenten en docenten van de opleiding.</p>
-		<p>Stel je vragen over studiekeuze, studeren met een functiebeperking en toelating op het studiekeuzeplein. Heb je nog vragen over de opleiding? We staan tijdens de open dag/avond klaar om al jouw vragen te beantwoorden.</p>
-
-		-->
-
-		<details open>
-			<summary>Demo video</summary>
-			<video src="assets/tabs.mp4" width="1298" height="505" controls muted autoplay loop>
-				<a href="assets/tabs.mp4">assets/tabs.mp4</a>
-			</video>
-		</details>
-	</body>
+</body>
 </html>
